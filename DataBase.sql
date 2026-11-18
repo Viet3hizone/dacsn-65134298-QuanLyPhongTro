@@ -141,15 +141,6 @@ CREATE TABLE DichVu (
     CONSTRAINT CK_DichVu_Muc CHECK (TuMuc IS NULL OR DenMuc IS NULL OR DenMuc >= TuMuc)
 );
 
--- Dữ liệu mặc định, ứng dụng chèn khi chủ trọ mới đăng ký (thay @ct bằng ChuTro.Id):
--- INSERT INTO DichVu (ChuTroId, TenDichVu, LoaiDichVu, DonGia, DonVi, TuMuc, DenMuc, PhanTramPhat) VALUES
---   (@ct, N'Điện bậc 1', N'Dien', 1901, N'kWh',   0, 100,  0),
---   (@ct, N'Điện bậc 2', N'Dien', 2289, N'kWh', 101, 200,  0),
---   (@ct, N'Điện bậc 3', N'Dien', 2894, N'kWh', 201, 400,  0),
---   (@ct, N'Điện bậc 4', N'Dien', 3456, N'kWh', 401, 700,  0),
---   (@ct, N'Điện bậc 5', N'Dien', 3844, N'kWh', 701, NULL, 0),
---   (@ct, N'Nước',       N'Nuoc', 9000, N'm3', NULL, 2,   10);   -- định mức 2 m3/người, phạt 10%
-
 CREATE TABLE ChiSoDienNuoc (
     Id       INT IDENTITY PRIMARY KEY,
     PhongId  INT NOT NULL REFERENCES Phong(Id),
